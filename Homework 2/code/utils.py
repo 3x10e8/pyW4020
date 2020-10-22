@@ -22,14 +22,20 @@ class utils:
 			#tk = tk(:)
 
 			#plt.plot([tk,tk]',[ones(size(tk))*tr-0.4,ones(size(tk))*tr+0.4]','k')
-			plt.plot(tk, np.ones_like(tk)*tr -0.4, 'k')
-			plt.plot(tk, np.ones_like(tk)*tr +0.4, 'k')
-			#plt.plot([min(t),min(t)], [tr-0.5,tr+0.5],'Color',cs(tr,:),'LineWidth',3)
+			plt.plot(
+				[tk, tk],
+				[np.ones_like(tk)*tr -0.4, np.ones_like(tk)*tr +0.4]
+				, 'k')
+			
+			plt.plot(
+				[min(t),min(t)], 
+				[tr-0.5,tr+0.5],linewidth=3, 
+				# 'Color',cs(tr,:), # how do we handle this?
+				)
 
-		'''
-		plt.ylim([0,size(spike_state, 1)+1])
+		plt.ylim([-0.5, spike_state.shape[0] -0.5]) # just offset along Yaxis
 		plt.xlim([min(t),max(t)])
-		'''
+		
 		plt.show()
 
 if __name__ == '__main__': # run self-test
